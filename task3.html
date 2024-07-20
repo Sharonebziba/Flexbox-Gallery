@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Photo Gallery</title>
+    <style>
+        :root {
+            --primary-color: #ffd700; /* Yellow */
+            --secondary-color: #1a1a1a; /* Dark gray, almost black */
+            --text-color: #ffffff; /* White text for contrast */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(255, 215, 0, 0.2);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(26, 26, 26, 0.8);
+            color: var(--primary-color);
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .caption {
+            transform: translateY(0);
+        }
+
+        @media screen and (min-width: 600px) {
+            .gallery-item {
+                flex-basis: calc(50% - 20px);
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            .gallery-item {
+                flex-basis: calc(33.333% - 20px);
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .gallery-item {
+                flex-basis: calc(25% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Flexbox Photo Gallery</h1>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1015/600/400" alt="Image 1">
+            <div class="caption">Mountain Lake</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1016/600/400" alt="Image 2">
+            <div class="caption">Misty Forest</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1018/600/400" alt="Image 3">
+            <div class="caption">Mountain Range</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1019/600/400" alt="Image 4">
+            <div class="caption">Cloudy Peak</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1021/600/400" alt="Image 5">
+            <div class="caption">Forest River</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1022/600/400" alt="Image 6">
+            <div class="caption">Northern Lights</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1023/600/400" alt="Image 7">
+            <div class="caption">Grassy Hills</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/1024/600/400" alt="Image 8">
+            <div class="caption">Calm Lake</div>
+        </div>
+    </div>
+</body>
+</html>
